@@ -1,4 +1,6 @@
 from django.contrib import admin
+from .models import Neighbourhood, healthservices, notifications, Business, Health, Authorities, Profile
+
 
 # Register your models here.
 admin.site.register(Neighbourhood)

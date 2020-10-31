@@ -46,18 +46,18 @@ class notifications(models.Model):
         return self.title
 
 
-# class healthservices(models.Model):
-#     healthservices = models.CharField(max_length=100)
+class healthservices(models.Model):
+    healthservices = models.CharField(max_length=100)
 
-#     def __str__(self):
-#         return self.healthservices
+    def __str__(self):
+        return self.healthservices
 
-#     def save_healthservices(self):
-#         self.save()
+    def save_healthservices(self):
+        self.save()
 
-#     @classmethod
-#     def delete_healthservices(cls, healthservices):
-#         cls.objects.filter(healthservices=healthservices).delete()
+    @classmethod
+    def delete_healthservices(cls, healthservices):
+        cls.objects.filter(healthservices=healthservices).delete()
 
 
 # class Business(models.Model):

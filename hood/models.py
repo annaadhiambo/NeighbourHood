@@ -74,17 +74,17 @@ class Business(models.Model):
         return self.name
 
 
-# class Health(models.Model):
-#     logo = models.ImageField(upload_to='healthlogo/')
-#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
-#     name = models.CharField(max_length=100)
-#     email = models.EmailField()
-#     contact = models.IntegerField()
-#     address = models.CharField(max_length=100)
-#     healthservices = models.ManyToManyField(healthservices)
+class Health(models.Model):
+    logo = models.ImageField(upload_to='healthlogo/')
+    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    contact = models.IntegerField()
+    address = models.CharField(max_length=100)
+    healthservices = models.ManyToManyField(healthservices)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
 
 
 # class Authorities(models.Model):

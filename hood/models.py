@@ -33,83 +33,83 @@ class Neighbourhood(models.Model):
         self.save()
 
 
-class notifications(models.Model):
-    title = models.CharField(max_length=100)
-    notification = HTMLField()
-    priority = models.CharField(max_length=15, choices=Priority, default="Informational")
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE
-    )
-    post_date = models.DateTimeField(auto_now_add=True)
+# class notifications(models.Model):
+#     title = models.CharField(max_length=100)
+#     notification = HTMLField()
+#     priority = models.CharField(max_length=15, choices=Priority, default="Informational")
+#     author = models.ForeignKey(User, on_delete=models.CASCADE)
+#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE
+#     )
+#     post_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.title
-
-
-class healthservices(models.Model):
-    healthservices = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.healthservices
-
-    def save_healthservices(self):
-        self.save()
-
-    @classmethod
-    def delete_healthservices(cls, healthservices):
-        cls.objects.filter(healthservices=healthservices).delete()
+#     def __str__(self):
+#         return self.title
 
 
-class Business(models.Model):
-    logo = models.ImageField(upload_to='businesslogo/')
-    description = HTMLField()
-    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    address = models.CharField(max_length=100)
-    contact = models.IntegerField()
+# class healthservices(models.Model):
+#     healthservices = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.healthservices
 
+#     def save_healthservices(self):
+#         self.save()
 
-class Health(models.Model):
-    logo = models.ImageField(upload_to='healthlogo/')
-    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    contact = models.IntegerField()
-    address = models.CharField(max_length=100)
-    healthservices = models.ManyToManyField(healthservices)
-
-    def __str__(self):
-        return self.name
+#     @classmethod
+#     def delete_healthservices(cls, healthservices):
+#         cls.objects.filter(healthservices=healthservices).delete()
 
 
-class Authorities(models.Model):
-    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    contact = models.IntegerField()
-    address = models.CharField(max_length=100)
+# class Business(models.Model):
+#     logo = models.ImageField(upload_to='businesslogo/')
+#     description = HTMLField()
+#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+#     owner = models.ForeignKey(User, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     address = models.CharField(max_length=100)
+#     contact = models.IntegerField()
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
 
-class Profile(models.Model):
-    avatar = models.ImageField(upload_to='avatars/', blank = True)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    bio = HTMLField()
-    neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+# class Health(models.Model):
+#     logo = models.ImageField(upload_to='healthlogo/')
+#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     contact = models.IntegerField()
+#     address = models.CharField(max_length=100)
+#     healthservices = models.ManyToManyField(healthservices)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
 
-class Comment(models.Model):
-    comment = models.CharField(max_length=300)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+
+# class Authorities(models.Model):
+#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     contact = models.IntegerField()
+#     address = models.CharField(max_length=100)
+
+#     def __str__(self):
+#         return self.name
+
+
+# class Profile(models.Model):
+#     avatar = models.ImageField(upload_to='avatars/', blank = True)
+#     username = models.ForeignKey(User, on_delete=models.CASCADE)
+#     name = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     bio = HTMLField()
+#     neighbourhood = models.ForeignKey(Neighbourhood, on_delete=models.CASCADE)
+
+#     def __str__(self):
+#         return self.name
+
+# class Comment(models.Model):
+#     comment = models.CharField(max_length=300)
+#     username = models.ForeignKey(User, on_delete=models.CASCADE)
+#     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)

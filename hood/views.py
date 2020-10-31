@@ -66,3 +66,18 @@ def user_profile(request, username):
     profile = Profile.objects.get(username = user)
 
     return render(request, 'user_profile.html', {"profile":profile})
+
+@login_required(login_url='/accounts/login/')
+def create_profile(request):
+    current_user=request.user
+    if request.method == "POST":
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.username = current_user
+            profile.save()
+        return HttpResponseRedirect('/')
+
+    else:
+        form = ProfileForm()
+    return render(request, 'profile_form.html', {"form":form})

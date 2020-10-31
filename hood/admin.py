@@ -4,3 +4,4 @@ from django.contrib import admin
 admin.site.register(Neighbourhood)
 admin.site.register(Health)
 admin.site.register(Business)
+admin.site.register(healthservices)

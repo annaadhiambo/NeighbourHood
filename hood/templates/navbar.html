@@ -17,7 +17,7 @@
           <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="{% url 'notifications' %}">Alerts</a>
               <hr>
-              <a class="dropdown-item" href="{% url 'blog' %}">Neighbourhood Posts</a>
+              <a class="dropdown-item" href="{##}">Neighbourhood Posts</a>
           </div>
       </li>
       <li class="nav-item dropdown">
@@ -41,7 +41,7 @@
               <hr>
               <a class="dropdown-item" href="{% url 'update-profile' %}">Edit Profile</a>
               <hr>
-              <a class="dropdown-item" href="/logout">Logout</a>
+              <a class="dropdown-item" href="/accounts/login">Logout</a>
           </div>
       </li>
       {% else %}

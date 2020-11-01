@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,6 +35,7 @@ INSTALLED_APPS = [
     'hood',
     'bootstrap4',
     'tinymce',
+    'django_registration',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,7 +59,9 @@ ROOT_URLCONF = 'neighbour.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'hood/templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +73,9 @@ TEMPLATES = [
         },
     },
 ]
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
 
 WSGI_APPLICATION = 'neighbour.wsgi.application'
 
@@ -134,3 +141,12 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+
+
+
+LOGOUT_REDIRECT_URL = '/login/'
